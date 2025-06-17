@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { CiSquarePlus } from "react-icons/ci";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 
-const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    console.log("Dark mode toggled:", !isDarkMode);
-  };
-
+const Navbar = ({ isDarkMode, toggleDarkMode }) => {
   return (
-    <nav className="flex justify-between items-center w-full fixed top-0 left-0 px-20 py-4">
-      <a href="/" className="font-bold text-2xl">
+    <nav
+      className="flex justify-between items-center w-full fixed top-0 left-0 px-8 py-4 z-50
+                    bg-white dark:bg-gray-900 shadow-md dark:shadow-lg transition-colors duration-300"
+    >
+      <a
+        href="/"
+        className="font-extrabold text-3xl tracking-wide
+                             text-indigo-600 dark:text-indigo-400 transition-colors duration-300"
+      >
         PRODUCT STORE 🛒
       </a>
-      <div className="flex gap-4">
-        <a href="/create">
-          <CiSquarePlus size={50} />
+      <div className="flex items-center gap-6">
+        <a
+          href="/create"
+          className="text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400
+                                     transition-colors duration-300 transform hover:scale-110"
+        >
+          <CiSquarePlus size={40} />
         </a>
-        <button onClick={toggleDarkMode}>
+        <button
+          onClick={toggleDarkMode}
+          className="text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400
+                           transition-colors duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 rounded-full p-1"
+        >
           {isDarkMode ? (
-            <MdDarkMode size={50} />
+            <MdDarkMode size={40} />
           ) : (
-            <MdOutlineLightMode size={50} />
+            <MdOutlineLightMode size={40} />
           )}
         </button>
       </div>
