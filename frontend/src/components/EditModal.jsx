@@ -55,6 +55,7 @@ const EditModal = ({ product, onClose, onSave }) => {
             <input
               type="number"
               name="price"
+              step="any"
               value={formData.price}
               onChange={handleChange}
               className="w-full border rounded p-2"
